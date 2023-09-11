@@ -2,6 +2,7 @@
 #include <cctype>
 #include <cstdio>
 #include <cstdlib>
+#include <variant>
 #include <llvm/ADT/APFloat.h>
 #include <llvm/ADT/STLExtras.h>
 #include <llvm/IR/BasicBlock.h>
@@ -131,6 +132,7 @@ namespace Raupeka::Syntax::Lexer {
           return {Token::Type::Identifier, value};
         }
       }
+      return {Token::Type::Eof, ""};
     }
 
   private:

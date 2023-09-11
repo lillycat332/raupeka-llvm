@@ -10,7 +10,12 @@ project(Raupeka VERSION 0.1
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_EXTENSIONS OFF)
-include(FetchContent)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_CXX_FLAGS_DEBUG "-g -pthread")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -pthread")
+
+add_compile_options(-Wall -Wextra -pedantic)
 
 find_package(Boost REQUIRED)
 
@@ -34,5 +39,3 @@ add_subdirectory(src)
 
 # The executable code is here
 add_subdirectory(apps)
-
-# add_executable(lrc main.cpp)

@@ -1,6 +1,6 @@
 let pkgs = import<nixpkgs>{};
 in
-pkgs.mkShell.override { stdenv = pkgs.llvmPackages_13.stdenv; } {
+pkgs.mkShell {
   nativeBuildInputs = with pkgs; [
     llvmPackages_13.bintools
     llvmPackages_13.clang
@@ -13,9 +13,9 @@ pkgs.mkShell.override { stdenv = pkgs.llvmPackages_13.stdenv; } {
     llvmPackages_13.llvm
     llvmPackages_13.openmp
     llvmPackages_13.stdenv
+    libxml2
     boost
     bear
     cmake
-    libxml2
   ];
 }

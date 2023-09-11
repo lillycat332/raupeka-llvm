@@ -13,6 +13,10 @@
 #include <vector>
 
 int main(int argc, char *argv[]) {
+  for (int i = 1; i < argc; ++i) {
+    std::cout << "argv[" << i << "] = " << argv[i] << std::endl;
+  };
+
   // Open a new context and module.
   std::unique_ptr<llvm::LLVMContext> Context =
       std::make_unique<llvm::LLVMContext>();
@@ -22,5 +26,7 @@ int main(int argc, char *argv[]) {
   // Create a new builder for the module.
   std::unique_ptr<llvm::IRBuilder<>> Builder =
       std::make_unique<llvm::IRBuilder<>>(*Context);
+
+  std::cout << "Hello, world!" << std::endl;
   return 0;
 }
