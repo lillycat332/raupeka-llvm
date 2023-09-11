@@ -17,9 +17,11 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -pthread")
 
 add_compile_options(-Wall -Wextra -pedantic)
 
+# Use boost for program options
 find_package(Boost REQUIRED)
 
 message(STATUS "Found Boost ${Boost_PACKAGE_VERSION}")
+include_directories(${Boost_INCLUDE_DIRS})
 
 find_package(LLVM REQUIRED CONFIG)
 

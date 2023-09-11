@@ -3,4 +3,6 @@ BasedOnStyle: LLVM
 ---
 Language: Cpp
 NamespaceIndentation: All
+IndentWidth: 2
+UseTab: Never
 ---

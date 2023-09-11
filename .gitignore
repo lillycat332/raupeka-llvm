@@ -43,3 +43,9 @@ Makefile
 .cache
 compile_commands.json
 
+.clangd
+
+# nix
+result
+*.drv
+.direnv
