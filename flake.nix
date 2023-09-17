@@ -1,5 +1,5 @@
 {
-  description = "Raupeka compiler";
+  description = "Lilly's Raupeka compiler";
 
   inputs = { nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; };
 
@@ -21,7 +21,7 @@
 
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages.default = pkgs.stdenv.mkDerivation {
-          name = "raupeka";
+          name = "lrc";
           license = "MIT";
           src = ./.;
 

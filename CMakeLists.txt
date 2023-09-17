@@ -36,8 +36,10 @@ add_definitions(${LLVM_DEFINITIONS_LIST})
 # that we wish to use
 llvm_map_components_to_libnames(llvm_libs support core irreader)
 
-# The compiled library code is here
+# The library code is here
 add_subdirectory(src)
+# The library headers are here
+include_directories(include)
 
 # The executable code is here
 add_subdirectory(apps)

@@ -1,0 +1,32 @@
+import std::io
+import std::eff
+
+map : forall (Eff e) . (a ->{e} b) -> [a] ->{e} [b]
+map f xs = perform match xs with
+  []      -> e::pure []
+  x : xs' -> begin
+    -- Effects are not handled within this function and any effect handlers are
+    -- left up to the caller.
+    let y  = f x
+    let ys = map f xs'
+    e::pure (y : ys)
+  end
+end
+
+io_handler_example : (){eff::IO}
+io_handler_example = begin
+  let xs = [1, 2, 3]
+  let ys = perform (map io::println xs) with handler eff begin
+    match eff with
+      eff::IO::Stdout s -> io::println "function map attempted to print to stdout."
+      otherwise         -> resume ()
+    end
+  end
+  e::pure ()
+end
+
+-- main function.
+main : (){eff::IO}
+main = perform begin 
+  io::println "Hello, world!"
+end

@@ -1,10 +1,8 @@
-# set(HEADER_LIST "${Raupeka_SOURCE_DIR}/include/lrc_lib/lib.hpp")
+set(HEADER_LIST "${Raupeka_SOURCE_DIR}/include/lib")
+# Add include directory 
 
 add_library(lrc_lib STATIC
 	parser.cpp
-	parser.hpp
-	compiler.hpp
-	ast.hpp
 )
 
 set_target_properties(${TARGET_NAME} PROPERTIES
