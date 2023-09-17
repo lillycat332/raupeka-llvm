@@ -1,0 +1,14 @@
+module std::eff (Console, FS, Network, IO, Random) where
+
+-- | The 'IO' effect is the basis for all input and output in Raupeka.
+--   This module provides basic functions for reading and writing data.
+
+-- The IO effects are simply empty types, but because all IO effectful functions
+-- in std:: and core:: it is impossible to use them without the IO effect.
+effect Console : a
+effect FS      : a
+effect Network : a
+effect IO      : <Console, FS, Network>
+
+-- | The 'Random' effect provides access to a random number generator.
+effect Random : a

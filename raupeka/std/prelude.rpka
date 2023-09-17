@@ -1,0 +1,5 @@
+module std::prelude::v1 (std::data::function, std::data::option, std::data::result) where
+import std::data::function;
+import std::data::option;
+import std::data::result;
+import std::data::list;

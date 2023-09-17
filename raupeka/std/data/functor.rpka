@@ -1,0 +1,11 @@
+module std::data::functor (Functor) where
+import std::data::function
+-- | This module defines the 'Functor' trait, which is used to define
+--   data types that can be mapped over.
+
+trait Functor f where
+  -- | Map a function over a functor.
+  map : (a -> b) -> f a -> f b
+  <$ : a -> f b -> f a
+  (<$) = map . const
+end

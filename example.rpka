@@ -1,17 +1,6 @@
+module Main (main) where
 import std::io
 import std::eff
-
-map : forall (Eff e) . (a ->{e} b) -> [a] ->{e} [b]
-map f xs = perform match xs with
-  []      -> e::pure []
-  x : xs' -> begin
-    -- Effects are not handled within this function and any effect handlers are
-    -- left up to the caller.
-    let y  = f x
-    let ys = map f xs'
-    e::pure (y : ys)
-  end
-end
 
 io_handler_example : (){eff::IO}
 io_handler_example = begin

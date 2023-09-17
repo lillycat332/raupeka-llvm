@@ -1,0 +1,19 @@
+module std::io (println, readln, exit) where
+import std::eff
+-- | Module: std.io
+--   This module provides functions for performing IO.
+
+-- We need to include functions from the runtime system to perform IO.
+foreign import "rts" println_core : Text -> () { eff::IO }
+foreign import "rts" readln_core  : () -> Text { eff::IO }
+foreign import "rts" exit_core    : Int -> ()  { eff::IO }
+
+-- Now we re-export aliases for these functions.
+println : Text -> () { eff::IO }
+println = println_core
+
+readln : () -> Text { eff::IO }
+readln = readln_core
+
+exit : Int -> () { eff::IO }
+exit = exit_core

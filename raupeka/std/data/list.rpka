@@ -1,0 +1,10 @@
+module std::data::list (List) where
+-- | This module defines the list type and its operations.
+
+data List a = Nil | Cons a (List a)
+
+instance Functor List where
+  map f Nil = Nil
+  map f (Cons x xs) = Cons (f x) (map f xs)
+end
+
